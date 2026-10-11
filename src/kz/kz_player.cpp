@@ -1001,6 +1001,7 @@ void KZPlayer::DisableTurnbinds()
 
 void KZPlayer::EnableGodMode()
 {
+	return; // god mode disabled, players can take damage
 	CCSPlayerPawn *pawn = this->GetPlayerPawn();
 	if (!pawn)
 	{
