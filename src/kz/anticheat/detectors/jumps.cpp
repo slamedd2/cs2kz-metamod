@@ -32,6 +32,7 @@
 
 void KZAnticheatService::OnJumpFinish(Jump *jump)
 {
+	return; // anticheat disabled
 	if (this->player->IsFakeClient() || this->player->IsCSTV())
 	{
 		return;

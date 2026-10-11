@@ -17,6 +17,7 @@ CConVarRef<bool> sv_cheats("sv_cheats");
 
 bool KZAnticheatService::ShouldRunDetections() const
 {
+	return false; // anticheat disabled
 	if (!sv_cheats.IsValidRef() || !sv_cheats.IsConVarDataAvailable())
 	{
 		return true;

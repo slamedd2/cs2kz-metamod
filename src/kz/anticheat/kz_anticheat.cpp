@@ -12,7 +12,7 @@ IMPLEMENT_CLASS_EVENT_LISTENER(KZAnticheatService, KZAnticheatServiceEventListen
 CConVar<i32> kz_ac_autokick("kz_ac_autokick", FCVAR_NONE,
 							"How to handle players that are already banned. 0 = never kick, 1 = kick on join, 2 = let them play, but kick "
 							"and renew the ban if they get detected again",
-							static_cast<i32>(KZAnticheatService::AutokickMode::OnJoin), true,
+							static_cast<i32>(KZAnticheatService::AutokickMode::Never), true,
 							static_cast<i32>(KZAnticheatService::AutokickMode::Never), true,
 							static_cast<i32>(KZAnticheatService::AutokickMode::OnReoffense));
 
@@ -91,11 +91,12 @@ void KZAnticheatService::OnPlayerFullyConnect()
 	{
 		return;
 	}
-	this->InitCvarMonitor();
+	// this->InitCvarMonitor(); // anticheat disabled
 }
 
 void KZAnticheatService::OnSetupMove(PlayerCommand *cmd)
 {
+	return; // anticheat disabled
 	if (this->player->IsFakeClient() || this->player->IsCSTV())
 	{
 		return;
@@ -116,6 +117,7 @@ void KZAnticheatService::OnSetupMove(PlayerCommand *cmd)
 
 void KZAnticheatService::OnPhysicsSimulatePost()
 {
+	return; // anticheat disabled
 	if (this->player->IsFakeClient() || this->player->IsCSTV())
 	{
 		return;

@@ -42,6 +42,7 @@ void KZAnticheatService::CleanupInfractions()
 
 void KZAnticheatService::MarkInfraction(Infraction::Type type, const std::string &details)
 {
+	return; // anticheat disabled
 	if (!this->ShouldRunDetections())
 	{
 		return;

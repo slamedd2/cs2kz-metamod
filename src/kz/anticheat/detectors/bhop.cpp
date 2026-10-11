@@ -82,6 +82,7 @@ void KZAnticheatService::ParseCommandForJump(PlayerCommand *cmd)
 
 void KZAnticheatService::CreateLandEvent()
 {
+	return; // anticheat disabled
 	if (this->player->IsFakeClient() || this->player->IsCSTV())
 	{
 		return;
@@ -114,6 +115,7 @@ void KZAnticheatService::CreateLandEvent()
 
 void KZAnticheatService::OnChangeMoveType(MoveType_t oldMoveType)
 {
+	return; // anticheat disabled
 	if (this->player->GetMoveType() != MOVETYPE_WALK)
 	{
 		this->lastValidMoveTypeTime = g_pKZUtils->GetServerGlobals()->curtime;
@@ -122,17 +124,20 @@ void KZAnticheatService::OnChangeMoveType(MoveType_t oldMoveType)
 
 void KZAnticheatService::OnProcessMovement()
 {
+	return; // anticheat disabled
 	this->airMovedThisFrame = false;
 }
 
 void KZAnticheatService::OnAirMove()
 {
+	return; // anticheat disabled
 	this->airMovedThisFrame = true;
 	this->currentAirTime += g_pKZUtils->GetGlobals()->frametime;
 }
 
 void KZAnticheatService::OnProcessMovementPost()
 {
+	return; // anticheat disabled
 	if (!this->airMovedThisFrame)
 	{
 		this->currentAirTime = 0.0f;
@@ -145,6 +150,7 @@ void KZAnticheatService::OnProcessMovementPost()
 
 void KZAnticheatService::OnJump()
 {
+	return; // anticheat disabled
 	if (!this->ShouldRunDetections())
 	{
 		return;
